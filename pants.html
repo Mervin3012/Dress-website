@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dress</title>
+    <link rel="stylesheet" href="style.css">  
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+       .card {
+              border: 2px solid #f8f4f4;
+              /* width: 300px; */
+              border-radius: 8px;
+              overflow: hidden;
+              transition: transform 0.2s ease-in-out;
+          }
+          .card:hover {
+              transform: scale(1.05);
+          }
+          .btn-favorite {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background:none;
+            border: none;
+            font-size: 1.5rem;
+            color:black;
+            cursor: pointer; /* Apply cursor to the Favorite button */
+        }
+        .rating {
+            margin-bottom: 15px;
+            font-size: larger;
+            font-weight: bold;
+        }
+
+        .rating span {
+            color:rgb(248, 164, 9);
+            font-size: 20px;
+            cursor: pointer; /* Apply cursor to rating stars */
+        }
+        .footer{
+    background-color:rgb(15, 1, 1);
+}
+.footer footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.footer footer div {
+    margin: 20p 10px 10px 10px;
+    padding: 10px;
+    text-align:start;
+    font-weight:normal;
+    margin-left: 20px;
+    margin-right: 80px;
+    color:rgb(248, 245, 245);
+    justify-content: start;
+
+}
+.footer footer div p{
+    text-align: start;
+    font-size: 20px;
+    color: white;
+    justify-content: start;
+}
+.footer footer .column5 p{
+    display: inline;
+}
+.footer column6{
+    padding: 10px;
+}
+.footer column6 p{
+    text-align:start;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    justify-content: start;
+}
+.copy{
+    color: white;
+}
+.overlay{
+    display: block;
+    opacity: 0;
+    position: absolute;
+    top: 10%;
+    margin-left: 0;
+    width: 70px;
+} 
+#product-cards .card:hover .overlay{
+    opacity: 1;
+    margin-left: 5%;
+    transition: 0.5s ease;
+}
+.overlay i img{
+    background-color:black;
+    height: 40px;
+    width: 40px;
+    font-size: 20px;
+    padding: 7px;
+    margin: -20%;
+    margin-bottom: 5%;
+    cursor: pointer;
+}
+.overlay .btn-secondary{
+    background: transparent !important;
+    border: none;
+    box-shadow: none;
+}
+
+/* Toggle Switch Styles */
+body {
+    transition: background-color 0.5s, color 0.5s;
+    }
+.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+    }
+.toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 30px;
+        }
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color:rgb(231, 107, 107);
+            transition: .4s;
+            border-radius: 14px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 2px;
+            bottom: 2px;
+            background-color: rgb(247, 239, 239);
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: rgb(10, 10, 10); /* Bootstrap primary color */
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+.HEADING
+ {
+    font-weight: lighter;
+     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     font-style: oblique;
+     font-size: 20px;
+    color: #121212;
+ }
+ .card-body{
+    color: black;
+}
+ /* Cart View Style */
+ .card {
+    position: relative;
+}
+.cart-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: rgb(250, 170, 170);
+            color: rgb(8, 8, 8);
+            border-radius: 25%;
+            padding: 5px;
+            font-size: 15px;
+            
+        }
+        .navbar .icons a {
+            position: relative;
+        }
+        #cart-view {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        #cart-view .cart-content {
+            background-color: #fff;
+            padding: 20px;
+            color: black;
+            border-radius: 8px;
+            max-width: 500px;
+            margin: auto;
+        }
+        .btn-close-cart {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: red;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #111111;
+            padding: 10px 0;
+        }
+
+        .cart-item img {
+            width: 100px;
+            height: 100px;
+          
+        }
+
+        .cart-item .item-details {
+            flex: 1;
+            margin-left: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .cart-item .item-details .price {
+            font-size: 20px;  /* Smaller price */
+            font-weight: bold;
+        }
+
+        .cart-item .item-actions {
+            display: flex;
+            align-items: center;
+            gap: 0px;
+            width: 100%;
+            justify-content: space-between;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+
+        .btn-small {
+            font-size: 10px;
+            padding: 3px 6px;
+            font-weight: bold;
+            background-color: white;
+
+        }
+
+        .btn-delete {
+            background:none;
+            border:none;
+            cursor: pointer;
+            padding: 0;
+           
+        }
+        .btn-delete img{
+            width: 25px;
+            height: 30px;
+        }
+
+        .btn-later {
+            background-color: rgb(100, 109, 236);
+            color: rgb(247, 242, 242);
+            border: none;
+            padding: 5px 10px;
+            font-size: 17px;
+            width: 45%;
+        }
+
+        .btn-processed {
+            background-color: rgb(103, 240, 103);
+            color: black;
+            border: none;
+            padding: 5px 10px;
+            font-size: 17px;
+            width: 45%;
+        }
+
+        .cart-footer {
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+            font-size: 12px;
+            margin-top: 20px;
+        }
+
+        .cart-footer .btn-small {
+            margin-top: 50px;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar1">
+        <div class="container-fluid">
+            <img src="images/icons8-mario-40.png" alt="Logo">
+            <div class="HEADING">
+                <!-- <b>MENS FASHION HUB...</b> -->
+                <B> Mens Fashion Hub...</B>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto" style="font-weight: bolder; font-size: 16px;">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><b>New Arrivals</b></a></li>
+                    <li class="nav-item"><a class="nav-link" href="formal shirts.html"><b>Formal Shirts</b></a></li>
+                    <li class="nav-item"><a class="nav-link" href="casual shirts.html"><b>Casual Shirts</b></a></li>
+                    <li class="nav-item"><a class="nav-link" href="t-shirts.html"><b>T-Shirts</b></a></li>
+                    <li class="nav-item"><a class="nav-link" href="pants.html"><b>Pants</b></a></li>
+                    <li class="nav-item"><a class="nav-link" href="accessories.html"><b>Accessories</b></a></li>
+                </ul>
+                <div class="icons">
+                    <a class="nav-link" href=""><img src="images/icons8-filled-heart-28.png" alt="Wishlist"></a>
+                    <a class="nav-link" href="javascript:void(0);" onclick="openCart()">
+                        <img src="images/icons8-shopping-cart-28.png">
+                           <span id="cart-badge" class="cart-badge">0</span>
+                       </a>
+                    <a class="nav-link" href=""><img src="images/icons8-search-28.png" alt="Search"></a>
+                </div>
+                <button class="btn btn-primary">
+                    <a class="nav-link text-white" href="login.html" style="margin: 0; padding: 0;"><b>Log In</b></a>
+                </button>&nbsp;&nbsp;&nbsp;
+                <button class="btn btn-secondary">
+                    <a class="nav-link text-white" href="sign in.html" style="margin: 0; padding: 0;"><b>Sign In</b></a>
+                </button>&nbsp;&nbsp;
+                <label class="toggle-switch">
+                    <input type="checkbox" id="toggleMode">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+    </nav>
+    
+       </body>
+</html>
+
+    <!-- Carousel Section -->
+  <br><div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="images/pant carosal1.jpeg"alt="" width="100%"class="d-block w-100" alt="First slide">
+        <div class="carousel-caption d-none d-md-block">
+          <!-- <h5>First slide label</h5> -->
+          <!-- <p>Some representative placeholder content for the first slide.</p> -->
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="images/pant carosal2.jpeg"class="d-block w-100" alt="Second slide">
+        <div class="carousel-caption d-none d-md-block">
+          <!-- <h5>Second slide label</h5> -->
+          <!-- <p>Some representative placeholder content for the second slide.</p> -->
+        </div>
+      </div>
+        </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div><br>
+
+  <center><h2><b>CARGO PANTS TREADING COLLECTION</b></h2></center>
+  <br>
+  <!-- Grid System -->
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-md-4">
+          <div class="card">
+              <img src="images/PANT BANNER.jpeg" class="card-img-top" alt="Men Solid Formal Shirt">
+              <div class="card-body">
+                  <h4 class="text-center"><b>CHOOSE YOUR COMFORT FIT</b></h4>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4">
+          <div class="card">
+              <img src="images/pant banner1.jpeg" class="card-img-top" alt="Spread Collar Formal Shirts">
+              <div class="card-body">
+                  <h4 class="text-center"><b>NEW PANTS COLLECTION</b></h4>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4">
+          <div class="card">
+              <img src="images/pant banner2.jpeg" class="card-img-top" alt="Pure Cotton Formal Shirts">
+              <div class="card-body">
+                  <h4 class="text-center"><b>CHOOSE YOUR GOOD PRODUCT</b></h4>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <br><br>
+
+  <!-- first Grid System  -->
+  <div class="container-fluid" id="product-cards">
+  <div class="row">
+      <div class="col-md-3 mb-4">
+          <div class="card">
+            <img src="images/PANT1 (4).jpeg" class="card-img-top" alt="Slim Fit Formal Shirts">
+            <div class="overlay">
+                <button type="button" class="btn btn-secondary" title="Quick View">
+                    <i><img src="./images/icons8-heart-64.png" alt="Quick View" width="30px"></i>
+                </button>
+                <button type="button" class="btn btn-secondary" title="Add to Wishlist">
+                    <i><img src="./images/icons8-forward-arrow-35.png" alt="Add to Wishlist" width="30px"></i>
+                </button>
+            </div>
+              <div class="card-body">
+                  <h4 class="card-title">AD By Arvind</h4>
+                  <p class="card-text">Black Formal Stylish Pant</p>
+                  <p class="card-text"><b>Rs.989</b> <span class="text-muted text-decoration-line-through">Rs.1799</span></p>
+                  <p><div class="rating">3.5<span>&#9733;</span></div></p>
+                  <button class="btn btn-primary" onclick="addToCart(49, 'AD By Arvind', 989, 'images/PANT1 (4).jpeg')">Add to Cart</button>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-3 mb-4">
+          <div class="card">
+              <img src="images/PANT1 (5).jpeg" class="card-img-top" alt="Slim Fit Formal Shirts">
+              <div class="overlay">
+                <button type="button" class="btn btn-secondary" title="Quick View">
+                    <i><img src="./images/icons8-heart-64.png" alt="Quick View" width="30px"></i>
+                </button>
+                <button type="button" class="btn btn-secondary" title="Add to Wishlist">
+                    <i><img src="./images/icons8-forward-arrow-35.png" alt="Add to Wishlist" width="30px"></i>
+                </button>
+            </div>
+              <div class="card-body">
+                  <h4 class="card-title">Park Avenue</h4>
+                  <p class="card-text">Tapered Fit Distressed Jeans</p>
+                  <p class="card-text"><b>Rs.1299</b> <span class="text-muted text-decoration-line-through">Rs.1699</span></p>
+                  <p><div class="rating">4.1<span>&#9733;</span></div></p>
+                  <button class="btn btn-primary" onclick="addToCart(50, 'Park Avenue', 1299, 'images/PANT1 (5).jpeg')">Add to Cart</button>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-3 mb-4">
+          <div class="card">
+              <img src="images/PANT1 (6).jpeg" class="card-img-top" alt="Slim Fit Formal Shirts">
+              <div class="overlay">
+                <button type="button" class="btn btn-secondary" title="Quick View">
+                    <i><img src="./images/icons8-heart-64.png" alt="Quick View" width="30px"></i>
+                </button>
+                <button type="button" class="btn btn-secondary" title="Add to Wishlist">
+                    <i><img src="./images/icons8-forward-arrow-35.png" alt="Add to Wishlist" width="30px"></i>
+                </button>
+            </div>
+              <div class="card-body">
+                  <h4 class="card-title">Greyberrys</h4>
+                  <p class="card-text">Mustard Gold Carpenter Jeans</p>
+                  <p class="card-text"><b>Rs.1199</b> <span class="text-muted text-decoration-line-through">Rs.1499</span></p>
+                  <p><div class="rating">4.7<span>&#9733;</span></div></p>
+                  <button class="btn btn-primary" onclick="addToCart(51, 'Greyberrys', 1199, 'images/PANT1 (6).jpeg')">Add to Cart</button>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-3 mb-4">
+          <div class="card">
+              <img src="images/PANT1 (7).jpeg" class="card-img-top" alt="Slim Fit Formal Shirts">
+              <div class="overlay">
+                <button type="button" class="btn btn-secondary" title="Quick View">
+                    <i><img src="./images/icons8-heart-64.png" alt="Quick View" width="30px"></i>
+                </button>
+                <button type="button" class="btn btn-secondary" title="Add to Wishlist">
+                    <i><img src="./images/icons8-forward-arrow-35.png" alt="Add to Wishlist" width="30px"></i>
+                </button>
+            </div>
+              <div class="card-body">
+                  <h4 class="card-title">Snith</h4>
+                  <p class="card-text">White Loose Comfort Fit Cargo</p>
+                  <p class="card-text"><b>Rs.999</b> <span class="text-muted text-decoration-line-through">Rs.1499</span></p>
+                  <p><div class="rating">3.7<span>&#9733;</span></div></p>
+                  <button class="btn btn-primary" onclick="addToCart(52, 'Snitch', 999, 'images/PANT1 (7).jpeg')">Add to Cart</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <br>
+
+  <!-- second Grid System -->
+  <div class="container-fluid" id="product-cards">
+  <div class="row">
+      <div class="col-md-3 mb-4">
+          <div class="card">
+              <img src="images/pant 1111.jpeg" class="card-img-top" alt="Men Solid Formal Shirt">
+              <div class="overlay">
+                <button type="button" class="btn btn-secondary" title="Quick View">
+                    <i><img src="./images/icons8-heart-64.png" alt="Quick View" width="30px"></i>
+                </button>
+                <button type="button" class="btn btn-secondary" title="Add to Wishlist">
+                    <i><img src="./images/icons8-forward-arrow-35.png" alt="Add to Wishlist" width="30px"></i>
+                </button>
+            </div>
+              <div class="card-body">
+                  <h4 class="card-title">Snitch</h4>
+                  <p class="card-text">Dark Blue Pants For Men</p>
+                  <p class="card-text"><b>Rs.1049</b> <span class="text-muted text-decoration-line-through">Rs.1499</span></p>
+                  <p><div class="rating">4.5<span>&#9733;</span></div></p>
+                  <button class="btn btn-primary" onclick="addToCart(53, 'Snitch', 1099, 'images/pant 1111.jpeg')">Add to Cart</button>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-3 mb-4">
+          <div class="card">
+              <img src="images/PANT1 (2).jpeg" class="card-img-top" alt="Spread Collar Formal Shirts">
+              <div class="overlay">
+                <button type="button" class="btn btn-secondary" title="Quick View">
+                    <i><img src="./images/icons8-heart-64.png" alt="Quick View" width="30px"></i>
+                </button>
+                <button type="button" class="btn btn-secondary" title="Add to Wishlist">
+                    <i><img src="./images/icons8-forward-arrow-35.png" alt="Add to Wishlist" width="30px"></i>
+                </button>
+            </div>
+              <div class="card-body">
+                  <h4 class="card-title">Beyours</h4>
+                  <p class="card-text">Flat-Front Slim Fit</p>
+                  <p class="card-text"><b>Rs.799</b> <span class="text-muted text-decoration-line-through">Rs.1399</span></p>
+                  <p><div class="rating">4.2<span>&#9733;</span></div></p>
+                  <button class="btn btn-primary" onclick="addToCart(54, 'Beyours', 799, 'images/PANT1 (2).jpeg')">Add to Cart</button>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-3 mb-4">
+          <div class="card">
+              <img src="images/PANT1 (3).jpeg" class="card-img-top" alt="Pure Cotton Formal Shirts">
+              <div class="overlay">
+                <button type="button" class="btn btn-secondary" title="Quick View">
+                    <i><img src="./images/icons8-heart-64.png" alt="Quick View" width="30px"></i>
+                </button>
+                <button type="button" class="btn btn-secondary" title="Add to Wishlist">
+                    <i><img src="./images/icons8-forward-arrow-35.png" alt="Add to Wishlist" width="30px"></i>
+                </button>
+            </div>
+              <div class="card-body">
+                  <h4 class="card-title">Arrow</h4>
+                  <p class="card-text">Straight Fit Cargo Pant</p>
+                  <p class="card-text"><b>Rs.749</b> <span class="text-muted text-decoration-line-through">Rs.1449</span></p>
+                  <p><div class="rating">3.9<span>&#9733;</span></div></p>
+                  <button class="btn btn-primary" onclick="addToCart(55, 'Arrow', 749, 'images/PANT1 (3).jpeg')">Add to Cart</button>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-3 mb-4">
+          <div class="card">
+              <img src="images/PANT1 (9).jpeg" class="card-img-top" alt="Slim Fit Formal Shirts">
+              <div class="overlay">
+                <button type="button" class="btn btn-secondary" title="Quick View">
+                    <i><img src="./images/icons8-heart-64.png" alt="Quick View" width="30px"></i>
+                </button>
+                <button type="button" class="btn btn-secondary" title="Add to Wishlist">
+                    <i><img src="./images/icons8-forward-arrow-35.png" alt="Add to Wishlist" width="30px"></i>
+                </button>
+            </div>
+              <div class="card-body">
+                  <h4 class="card-title">Park Avenue</h4>
+                  <p class="card-text">White Loose Comfort Fit Cargo</p>
+                  <p class="card-text"><b>Rs.1189</b> <span class="text-muted text-decoration-line-through">Rs.1999</span></p>
+                  <p><div class="rating">4.3<span>&#9733;</span></div></p>
+                  <button class="btn btn-primary" onclick="addToCart(56, 'Park Avenue', 699, 'images/PANT1 (9).jpeg')">Add to Cart</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+            <!--third Grid System -->
+<div class="container-fluid" id="product-cards">
+  <div class="row">
+      <div class="col-md-3 mb-4">
+          <div class="card">
+              <img src="images/PANT1 (8).jpeg" class="card-img-top" alt="Slim Fit Formal Shirts">
+              <div class="overlay">
+                <button type="button" class="btn btn-secondary" title="Quick View">
+                    <i><img src="./images/icons8-heart-64.png" alt="Quick View" width="30px"></i>
+                </button>
+                <button type="button" class="btn btn-secondary" title="Add to Wishlist">
+                    <i><img src="./images/icons8-forward-arrow-35.png" alt="Add to Wishlist" width="30px"></i>
+                </button>
+            </div>
+              <div class="card-body">
+                  <h4 class="card-title">Luxz By Tigc</h4>
+                  <p class="card-text">Green Cargo Pant</p>
+                  <p class="card-text"><b>Rs.1499</b> <span class="text-muted text-decoration-line-through">Rs.1999</span></p>
+                  <p><div class="rating">4.6<span>&#9733;</span></div></p>
+                  <button class="btn btn-primary" onclick="addToCart(57, 'Luxz By Tigc', 1499, 'images/PANT1 (8).jpeg')">Add to Cart</button>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-3 mb-4">
+          <div class="card">
+              <img src="images/PANT1 (13).jpeg" class="card-img-top" alt="Slim Fit Formal Shirts">
+              <div class="overlay">
+                <button type="button" class="btn btn-secondary" title="Quick View">
+                    <i><img src="./images/icons8-heart-64.png" alt="Quick View" width="30px"></i>
+                </button>
+                <button type="button" class="btn btn-secondary" title="Add to Wishlist">
+                    <i><img src="./images/icons8-forward-arrow-35.png" alt="Add to Wishlist" width="30px"></i>
+                </button>
+            </div>
+              <div class="card-body">
+                  <h4 class="card-title">Violet Dangers</h4>
+                  <p class="card-text">Khaki Cargo Shorts</p>
+                  <p class="card-text"><b>Rs.899</b> <span class="text-muted text-decoration-line-through">Rs.1599</span></p>
+                  <p><div class="rating">2.7<span>&#9733;</span></div></p>
+                  <button class="btn btn-primary" onclick="addToCart(58, 'Violet Dangers', 899, 'images/PANT1 (13).jpeg')">Add to Cart</button>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-3 mb-4">
+          <div class="card">
+              <img src="images/PANT1 (10).jpeg" class="card-img-top" alt="Slim Fit Formal Shirts">
+              <div class="overlay">
+                <button type="button" class="btn btn-secondary" title="Quick View">
+                    <i><img src="./images/icons8-heart-64.png" alt="Quick View" width="30px"></i>
+                </button>
+                <button type="button" class="btn btn-secondary" title="Add to Wishlist">
+                    <i><img src="./images/icons8-forward-arrow-35.png" alt="Add to Wishlist" width="30px"></i>
+                </button>
+            </div>
+              <div class="card-body">
+                  <h4 class="card-title">Tik Tik Burk</h4>
+                  <p class="card-text">Mauve Cargo Pants</p>
+                  <p class="card-text"><b>Rs.1499</b> <span class="text-muted text-decoration-line-through">Rs.1899</span></p>
+                  <p><div class="rating">3.5<span>&#9733;</span></div></p>
+                  <button class="btn btn-primary" onclick="addToCart(59, 'Tik Tik Burk', 1499, 'images/PANT1 (10).jpeg')">Add to Cart</button>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-3 mb-4">
+          <div class="card">
+              <img src="images/PANT1 (15).jpeg" class="card-img-top" alt="Slim Fit Formal Shirts">
+              <div class="overlay">
+                <button type="button" class="btn btn-secondary" title="Quick View">
+                    <i><img src="./images/icons8-heart-64.png" alt="Quick View" width="30px"></i>
+                </button>
+                <button type="button" class="btn btn-secondary" title="Add to Wishlist">
+                    <i><img src="./images/icons8-forward-arrow-35.png" alt="Add to Wishlist" width="30px"></i>
+                </button>
+            </div>
+              <div class="card-body">
+                  <h4 class="card-title">Red Dragons</h4>
+                  <p class="card-text">Dark Blue Cargo Shorts</p>
+                  <p class="card-text"><b>Rs.999</b> <span class="text-muted text-decoration-line-through">Rs.1299</span></p>
+                  <p><div class="rating">4.5<span>&#9733;</span></div></p>
+                  <button class="btn btn-primary" onclick="addToCart(60, 'Red Dragons', 999, 'images/PANT1 (15).jpeg')">Add to Cart</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  
+  <br>
+  
+  <!-- fourth Grid System -->
+  <div class="container-fluid" id="product-cards">
+  <div class="row">
+      <div class="col-md-3 mb-4">
+          <div class="card">
+              <img src="images/PANT1 (12).jpeg" class="card-img-top" alt="Slim Fit Formal Shirts">
+              <div class="overlay">
+                <button type="button" class="btn btn-secondary" title="Quick View">
+                    <i><img src="./images/icons8-heart-64.png" alt="Quick View" width="30px"></i>
+                </button>
+                <button type="button" class="btn btn-secondary" title="Add to Wishlist">
+                    <i><img src="./images/icons8-forward-arrow-35.png" alt="Add to Wishlist" width="30px"></i>
+                </button>
+            </div>
+              <div class="card-body">
+                  <h4 class="card-title">Park Avenue</h4>
+                  <p class="card-text">Brown Straight Fit Pants</p>
+                  <p class="card-text"><b>Rs.1299</b> <span class="text-muted text-decoration-line-through">Rs.1599</span></p>
+                  <p><div class="rating">3.8<span>&#9733;</span></div></p>
+                  <button class="btn btn-primary" onclick="addToCart(61, 'Park Avenue', 1299, 'images/PANT1 (12).jpeg')">Add to Cart</button>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-3 mb-4">
+          <div class="card">
+              <img src="images/PANT1 (9).jpeg" class="card-img-top" alt="Slim Fit Formal Shirts">
+              <div class="overlay">
+                <button type="button" class="btn btn-secondary" title="Quick View">
+                    <i><img src="./images/icons8-heart-64.png" alt="Quick View" width="30px"></i>
+                </button>
+                <button type="button" class="btn btn-secondary" title="Add to Wishlist">
+                    <i><img src="./images/icons8-forward-arrow-35.png" alt="Add to Wishlist" width="30px"></i>
+                </button>
+            </div>
+              <div class="card-body">
+                  <h4 class="card-title">Arrow</h4>
+                  <p class="card-text">Men Solid Fit Pants</p>
+                  <p class="card-text"><b>Rs.1199</b> <span class="text-muted text-decoration-line-through">Rs.1999</span></p>
+                  <p><div class="rating">4.8<span>&#9733;</span></div></p>
+                  <button class="btn btn-primary" onclick="addToCart(62, 'Arrow', 1199, 'images/PANT1 (9).jpeg')">Add to Cart</button>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-3 mb-4">
+          <div class="card">
+              <img src="images/PANT1 (14).jpeg" class="card-img-top" alt="Slim Fit Formal Shirts">
+              <div class="overlay">
+                <button type="button" class="btn btn-secondary" title="Quick View">
+                    <i><img src="./images/icons8-heart-64.png" alt="Quick View" width="30px"></i>
+                </button>
+                <button type="button" class="btn btn-secondary" title="Add to Wishlist">
+                    <i><img src="./images/icons8-forward-arrow-35.png" alt="Add to Wishlist" width="30px"></i>
+                </button>
+            </div>
+              <div class="card-body">
+                  <h4 class="card-title">White Rockers</h4>
+                  <p class="card-text">Grey Stripped Shorts</p>
+                  <p class="card-text"><b>Rs.799</b> <span class="text-muted text-decoration-line-through">Rs.1799</span></p>
+                  <p><div class="rating">3.9<span>&#9733;</span></div></p>
+                  <button class="btn btn-primary" onclick="addToCart(63, 'White Rockers', 799, 'images/PANT1 (14).jpeg')">Add to Cart</button>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-3 mb-4">
+          <div class="card">
+              <img src="images/PANT1 (11).jpeg" class="card-img-top" alt="Slim Fit Formal Shirts">
+              <div class="overlay">
+                <button type="button" class="btn btn-secondary" title="Quick View">
+                    <i><img src="./images/icons8-heart-64.png" alt="Quick View" width="30px"></i>
+                </button>
+                <button type="button" class="btn btn-secondary" title="Add to Wishlist">
+                    <i><img src="./images/icons8-forward-arrow-35.png" alt="Add to Wishlist" width="30px"></i>
+                </button>
+            </div>
+              <div class="card-body">
+                  <h4 class="card-title">Park Avenue</h4>
+                  <p class="card-text">Men Slim Fit Pants</p>
+                  <p class="card-text"><b>Rs.849</b> <span class="text-muted text-decoration-line-through">Rs.1199</span></p>
+                  <p><div class="rating">4.9<span>&#9733;</span></div></p>
+                  <button class="btn btn-primary" onclick="addToCart(64, 'Park Avenue', 849, 'images/PANT1 (11).jpeg')">Add to Cart</button>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>
+  <script>
+    const toggleButton = document.getElementById('toggleMode');
+    toggleButton.addEventListener('change', () => {
+        document.body.classList.toggle('dark-mode');
+        toggleButton.setAttribute('aria-pressed', toggleButton.checked);
+    });
+</script>
+
+   <!-- Cart View -->
+   <div id="cart-view">
+    <div class="cart-content">
+        <button class="btn-close-cart" onclick="closeCart()">X</button>
+       <center> <h2>Your Cart</h2></center>
+        <div id="cart-items"></div>
+        <div class="total-price">
+            <h4>Total: ₹<span id="cart-total">0</span></h4>
+        </div>
+        <div class="cart-footer">
+            <button class="btn-later btn-small" onclick="moveToLater()">
+                Move to Later
+            </button>
+            <button class="btn-processed btn-small" onclick="processItem()">
+                Mark as Processed
+            </button>
+        </div>
+    </div>
+</div>
+
+  <script>
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    const laterItems = JSON.parse(localStorage.getItem('laterItems')) || [];
+
+    // Function to add an item to the cart
+    function addToCart(id, title, price, img) {
+        const existingItem = cartItems.find(item => item.id === id);
+        if (existingItem) {
+            existingItem.quantity++;
+        } else {
+            cartItems.push({ id, title, price, img, quantity: 1 });
+        }
+        saveCartToLocalStorage();
+        updateCartBadge();
+    }
+
+    // Save the cart to localStorage
+    function saveCartToLocalStorage() {
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        localStorage.setItem('laterItems', JSON.stringify(laterItems));
+    }
+
+    // Update the cart badge
+    function updateCartBadge() {
+        const cartBadge = document.getElementById('cart-badge');
+        cartBadge.innerText = cartItems.length;
+    }
+
+    // Open the cart view
+    function openCart() {
+        document.getElementById('cart-view').style.display = 'block';
+        document.getElementById('navbarSupportedContent').classList.remove('show');
+        showCartItems();
+    }
+
+    // Close the cart view
+    function closeCart() {
+        document.getElementById('cart-view').style.display = 'none';
+    }
+
+    // Show cart items inside the cart modal
+    function showCartItems() {
+        const cartItemsContainer = document.getElementById('cart-items');
+        cartItemsContainer.innerHTML = '';
+        let total = 0;
+
+        cartItems.forEach(item => {
+            const cartItem = document.createElement('div');
+            cartItem.classList.add('cart-item');
+            cartItem.innerHTML = `
+                <img src="${item.img}" alt="product">
+                <div class="item-details">
+                    <span>${item.title}</span><br>
+                    <span class="price">₹${item.price}</span><br>
+                    <div class="item-actions">
+                        <button class="btn-small" onclick="updateQuantity(${item.id}, -1)">-</button>
+                        <span>${item.quantity}</span>
+                        <button class="btn-small" onclick="updateQuantity(${item.id}, 1)">+</button>
+                        <button class="btn-delete" onclick="removeItem(${item.id})">
+                             <img src="images/icons8-trash-30.png" alt="Delete" width="0px" height="0px">
+                        </button>
+                    </div>
+                </div>
+            `;
+            cartItemsContainer.appendChild(cartItem);
+            total += item.price * item.quantity;
+        });
+
+        document.getElementById('cart-total').innerText = total;
+    }
+
+    // Update item quantity
+    function updateQuantity(id, change) {
+        const item = cartItems.find(item => item.id === id);
+        if (item) {
+            item.quantity = Math.max(1, item.quantity + change);
+            saveCartToLocalStorage();
+            showCartItems();
+        }
+    }
+
+    // Remove item from cart
+    function removeItem(id) {
+        const index = cartItems.findIndex(item => item.id === id);
+        if (index > -1) {
+            cartItems.splice(index, 1);
+            saveCartToLocalStorage();
+            showCartItems();
+            updateCartBadge();
+        }
+    }
+
+    // Move item to Later
+    function moveToLater() {
+        alert('Move item to later');
+    }
+
+    // Mark item as Processed
+    function processItem() {
+        alert('Mark item as processed');
+    }
+
+    // Initialize cart badge on page load
+    updateCartBadge();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <div>
+      <img src="images/Small offer 1.jpeg" width="100%">
+  </div>
+</div><br>
+
+<div class="footer">
+  <footer>
+      <div class="container-fluid">
+          <div class="row">
+              <div class="column1 col-md-3">
+                  <h4>ONLINE SHOPPING</h4>
+                  <hr>
+                  <ul>
+                      <li><H5>NEW ARRIVALS</H5></li>
+                      <li><H5>FORMAL SHIRTS</H5></li>
+                      <li><H5>CASUAL SHIRTS</H5></li>
+                      <li><H5>T-SHIRTS</H5></li>
+                      <li><H5>DENIM PANTS</H5></li>
+                      <li><H5>MEN'S ACCESSORIES</H5></li>
+                  </ul>
+              </div>
+
+              <div class="column2 col-md-3">
+                  <h4>CUSTOMER POLICIES</h4>
+                  <hr>
+                  <ul>
+                      <li><H5>CONTACT US</H5></li>
+                      <li><H5>TRACK ORDERS</H5></li>
+                      <li><H5>SHIPPING</H5></li>
+                      <li><H5>RETURNS</H5></li>
+                      <li><H5>PRIVACY POLICY</H5></li>
+                      <li><H5>TERMS OF USE</H5></li>
+                  </ul>
+              </div>
+
+              <div class="column3 col-md-2">
+                  <h4>DISCOVER</h4>
+                  <hr>
+                  <ul>
+                      <li><H5>ABOUT US</H5></li>
+                      <li><H5>WHOLESALE INQUIRY</H5></li>
+                      <li><H5>INTERNATIONAL ORDERS</H5></li>
+                      <li><H5>CAREERS</H5></li>
+                      <li><H5>UPCOMING EXHIBITION</H5></li>
+                  </ul>
+              </div>
+
+              <div class="column4 col-md-6">
+                  <h4>CUSTOMER INFO</h4>
+                  <hr>
+                  <p><img src="images/icons8-alarm-clock-25.png"> MON to SAT - 9:00 AM to 8:00 PM (IST)</p>
+                  <p><img src="images/icons8-ringing-phone-25.png"> 9471558152</p>
+                  <p><img src="images/icons8-gmail-login-25 (1).png"> mensfashionhub30@gmail.com</p>
+                  <p><img src="images/icons8-address-25.png"> G93, SITAPURA INDUSTRIAL AREA,<br>SITAPURA, JAIPUR,<br>RAJASTHAN - 302022</p>
+              </div>
+
+              <div class="column5 col-md-3">
+                  <h4>FOLLOW US</h4>
+                  <hr>
+                  <img src="images/icons8-whatsapp-30 (1).png" alt="WhatsApp">
+                  <img src="images/icons8-instagram-logo-30.png" alt="Instagram">
+                  <img src="images/icons8-twitter-logo-30 (1).png" alt="Twitter">
+                  <img src="images/icons8-pinterest-logo-30.png" alt="Pinterest">
+                  <img src="images/icons8-facebook-logo-30.png" alt="Facebook">
+                  <img src="images/icons8-youtube-logo-30.png" alt="YouTube">
+              </div>
+          </div>
+
+          <div class="row">
+
+            <div class="column6 col-md-12"><HR><BR>
+                <h3>WEARING CLOTHES IS IMPORTANT FOR MANY REASONS:</h3><BR>
+                  <p>“LOOKING GOOD ISN'T SELF-IMPORTANCE; IT'S SELF-RESPECT.”<br> 
+                  “DRESSING WELL IS A FORM OF GOOD MANNERS.”<br>
+                  “THE BOOR COVERS HIMSELF, THE RICH MAN OR THE FOOL ADORNS HIMSELF, AND THE ELEGANT MAN GETS DRESSED.”</p>
+              </div>
+          </div>
+
+          <div class="copy">
+              <center>
+                  <hr>
+                  <h4>&copy; 2024 Super Store Private Limited. All Rights Reserved.</h4>
+              </center>
+          </div>
+      </div>
+  </footer>
+</div>
+
+                   

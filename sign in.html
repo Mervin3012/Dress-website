@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dress</title>
+    <link rel="stylesheet" href="style.css">  
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+         #navbar1{
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: 5px 5px 20px rgba(0,0,0,.5);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* font-size: 40px; */
+    font-weight: bold;
+    
+} 
+.button1{
+    background-color:whitesmoke;
+    border-color:black;
+    border-radius:10px;
+    border-width: 2.5px;
+}
+.button1:hover{
+    cursor: pointer;
+    background-color:rgb(97, 95, 96);
+}
+#navbarSupportedContent a{
+    color:rgb(7, 7, 7);
+    border-bottom: 2px solid transparent;
+}
+#navbarSupportedContent a:hover{
+    border-bottom: 2px solid rgb(10, 10, 10);
+    /* color: rgb(18, 131, 133); */
+    color: rgb(16, 101, 129); 
+}
+
+        .section {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; 
+            background-image: url(images/2\ cover.jpeg);
+          background-size: cover;
+          background-position: center;
+        }
+        .container {
+            background-color: rgb(199, 199, 194);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px black;
+            max-height: 200vh;
+            max-width: 70vh;
+        }
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            padding: 10px;
+        }
+        label {
+            font-weight: bolder;
+        }
+        input[type="email"],
+        input[type="password"],
+        input[type="text"] {
+            width: 100%;
+            padding: 1px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: rgb(238, 161, 18);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        /* Cart View Style */
+.card {
+    position: relative;
+}
+.cart-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: rgb(250, 170, 170);
+            color: rgb(8, 8, 8);
+            border-radius: 25%;
+            padding: 5px;
+            font-size: 15px;
+            
+        }
+        .navbar .icons a {
+            position: relative;
+        }
+        #cart-view {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        #cart-view .cart-content {
+            background-color: #fff;
+            padding: 20px;
+            color: black;
+            border-radius: 8px;
+            max-width: 500px;
+            margin: auto;
+        }
+        .btn-close-cart {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: red;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #111111;
+            padding: 10px 0;
+        }
+
+        .cart-item img {
+            width: 100px;
+            height: 100px;
+          
+        }
+
+        .cart-item .item-details {
+            flex: 1;
+            margin-left: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .cart-item .item-details .price {
+            font-size: 20px;  /* Smaller price */
+            font-weight: bold;
+        }
+
+        .cart-item .item-actions {
+            display: flex;
+            align-items: center;
+            gap: 0px;
+            width: 100%;
+            justify-content: space-between;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+
+        .btn-small {
+            font-size: 10px;
+            padding: 3px 6px;
+            font-weight: bold;
+            background-color: white;
+
+        }
+
+        .btn-delete {
+            background:none;
+            border:none;
+            cursor: pointer;
+            padding: 0;
+           
+        }
+        .btn-delete img{
+            width: 25px;
+            height: 30px;
+        }
+
+        .btn-later {
+            background-color: rgb(100, 109, 236);
+            color: rgb(247, 242, 242);
+            border: none;
+            padding: 5px 10px;
+            font-size: 17px;
+            width: 45%;
+        }
+
+        .btn-processed {
+            background-color: rgb(103, 240, 103);
+            color: black;
+            border: none;
+            padding: 5px 10px;
+            font-size: 17px;
+            width: 45%;
+        }
+
+        .cart-footer {
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+            font-size: 12px;
+            margin-top: 20px;
+        }
+
+        .cart-footer .btn-small {
+            margin-top: 50px;
+        }
+
+       /* Toggle Switch Styles */
+body {
+    transition: background-color 0.5s, color 0.5s;
+    }
+.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+    }
+.toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 30px;
+        }
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color:rgb(231, 107, 107);
+            transition: .4s;
+            border-radius: 14px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 2px;
+            bottom: 2px;
+            background-color: rgb(247, 239, 239);
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: rgb(10, 10, 10); /* Bootstrap primary color */
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar1">
+        <div class="container-fluid">
+            <img src="images/icons8-mario-40.png" alt="Logo">
+            <div class="HEADING">
+                <B> Mens Fashion Hub...</B>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto" style="font-weight: bolder; font-size: 16px;">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><b>New Arrivals</b></a></li>
+                    <li class="nav-item"><a class="nav-link" href="formal shirts.html"><b>Formal Shirts</b></a></li>
+                    <li class="nav-item"><a class="nav-link" href="casual shirts.html"><b>Casual Shirts</b></a></li>
+                    <li class="nav-item"><a class="nav-link" href="t-shirts.html"><b>T-Shirts</b></a></li>
+                    <li class="nav-item"><a class="nav-link" href="pants.html"><b>Pants</b></a></li>
+                    <li class="nav-item"><a class="nav-link" href="accessories.html"><b>Accessories</b></a></li>
+                </ul>
+                <div class="icons">
+                    <a class="nav-link" href="index.html"><img src="images/icons8-filled-heart-28.png" alt="Wishlist"></a>
+                    <a class="nav-link" href="javascript:void(0);" onclick="openCart()">
+                      <img src="images/icons8-shopping-cart-28.png">
+                         <span id="cart-badge" class="cart-badge">0</span>
+                     </a>
+    
+                 <a class="nav-link" href="index.html"><img src="images/icons8-search-28.png" alt="Search"></a>  
+                 </div>
+                <button class="btn btn-primary">
+                    <a class="nav-link text-white" href="login.html" style="margin: 0; padding: 0;"><b>Log In</b></a>
+                </button>&nbsp;&nbsp;&nbsp;
+                <button class="btn btn-secondary">
+                    <a class="nav-link text-white" href="sign in.html" style="margin: 0; padding: 0;"><b>Sign In</b></a>
+                </button>&nbsp;&nbsp;
+                <label class="toggle-switch">
+                    <input type="checkbox" id="toggleMode">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+    </nav>
+      <!-- <section class="section">
+        <div class="container">
+            <center><h1><u>REGISTER</u></h1></center>
+            <form id="registrationForm" onsubmit="return validateForm()">
+                <table>
+                    <tr>
+                        <td><label>Firstname</label></td>
+                        <td><input type="text" id="firstname" /></td>
+                    </tr>
+                    <tr>
+                        <td><label>Lastname</label></td>
+                        <td><input type="text" id="lastname" /></td>
+                    </tr>
+                    <tr>
+                        <td><label>Gender</label></td>
+                        <td>
+                            <b>Male</b><input type="radio" name="gender" value="Male" />
+                            <b>Female</b><input type="radio" name="gender" value="Female" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>Phone</label></td>
+                        <td>
+                            <select id="phoneCode" name="phoneCode">
+                                <option value="1">+91</option>
+                                <option value="2">+90</option>
+                                <option value="3">+83</option>
+                                <option value="4">+61</option>
+                                <option value="5">+32</option>
+                            </select>
+                            <input type="text" id="phone" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>Address</label></td>
+                        <td><input type="text" id="address" /></td>
+                    </tr>
+                    <tr>
+                        <td><label>E-mail ID</label></td>
+                        <td><input type="email" id="email" /></td>
+                    </tr>
+                    <tr>
+                        <td><label>Password</label></td>
+                        <td><input type="password" id="password" /></td>
+                    </tr>
+                    <tr>
+                        <td><label>Re-type Password</label></td>
+                        <td><input type="password" id="confirmPassword" /></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" /></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </section>
+    
+    <script>
+        function validateForm() {
+            resetStyles(); // Reset all styles before validation
+    
+            const firstname = document.getElementById('firstname');
+            const lastname = document.getElementById('lastname');
+            const gender = document.querySelector('input[name="gender"]:checked');
+            const phone = document.getElementById('phone');
+            const address = document.getElementById('address');
+            const email = document.getElementById('email');
+            const password = document.getElementById('password');
+            const confirmPassword = document.getElementById('confirmPassword');
+    
+            let isValid = true;
+    
+            if (!firstname.value.trim()) {
+                alert('Please enter your first name.');
+                setInvalid(firstname);
+                isValid = false;
+            } else {
+                setValid(firstname);
+            }
+    
+            if (!lastname.value.trim()) {
+                alert('Please enter your last name.');
+                setInvalid(lastname);
+                isValid = false;
+            } else {
+                setValid(lastname);
+            }
+    
+            if (!gender) {
+                alert('Please select your gender.');
+                isValid = false;
+            }
+    
+            if (!phone.value.trim()) {
+                alert('Please enter your phone number.');
+                setInvalid(phone);
+                isValid = false;
+            } else {
+                setValid(phone);
+            }
+    
+            if (!address.value.trim()) {
+                alert('Please enter your address.');
+                setInvalid(address);
+                isValid = false;
+            } else {
+                setValid(address);
+            }
+    
+            if (!email.value.trim()) {
+                alert('Please enter your email.');
+                setInvalid(email);
+                isValid = false;
+            } else if (!validateEmail(email.value.trim())) {
+                alert('Please enter a valid email address.');
+                setInvalid(email);
+                isValid = false;
+            } else {
+                setValid(email);
+            }
+    
+            if (!password.value) {
+                alert('Please enter your password.');
+                setInvalid(password);
+                isValid = false;
+            } else {
+                setValid(password);
+            }
+    
+            if (password.value !== confirmPassword.value) {
+                alert('Passwords do not match.');
+                setInvalid(confirmPassword);
+                isValid = false;
+            } else {
+                setValid(confirmPassword);
+            }
+    
+            return isValid; // Return the overall validation status
+        }
+    
+        function resetStyles() {
+            const inputs = document.querySelectorAll('input[type="text"], input[type="email"], input[type="password"]');
+            inputs.forEach(input => {
+                input.style.borderColor = '';
+            });
+        }
+    
+        function setInvalid(element) {
+            element.style.borderColor = 'red';
+        }
+    
+        function setValid(element) {
+            element.style.borderColor = 'green';
+        }
+    
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+    </script> -->
+    
+    <section class="section">
+        <div class="container">
+            <center><h1><u>REGISTER</u></h1></center>
+            <form id="registrationForm" onsubmit="return validateForm()">
+                <table>
+                    <tr>
+                        <td><label>Firstname</label></td>
+                        <td><input type="text" id="firstname" /></td>
+                    </tr>
+                    <tr>
+                        <td><label>Lastname</label></td>
+                        <td><input type="text" id="lastname" /></td>
+                    </tr>
+                    <tr>
+                        <td><label>Gender</label></td>
+                        <td>
+                            <b>Male</b><input type="radio" name="gender" value="Male" />
+                            <b>Female</b><input type="radio" name="gender" value="Female" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>Phone</label></td>
+                        <td>
+                            <div style="display: flex; align-items: center;">
+                                <select id="phoneCode" name="phoneCode" style="margin-right: 5px;">
+                                    <option value="1">+91</option>
+                                    <option value="2">+90</option>
+                                    <option value="3">+83</option>
+                                    <option value="4">+61</option>
+                                    <option value="5">+32</option>
+                                </select>
+                                <input type="text" id="phone" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>Address</label></td>
+                        <td><input type="text" id="address" /></td>
+                    </tr>
+                    <tr>
+                        <td><label>E-mail ID</label></td>
+                        <td><input type="email" id="email" /></td>
+                    </tr>
+                    <tr>
+                        <td><label>Password</label></td>
+                        <td><input type="password" id="password" /></td>
+                    </tr>
+                    <tr>
+                        <td><label>Re-type Password</label></td>
+                        <td><input type="password" id="confirmPassword" /></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" /></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </section>
+    <script>
+        const toggleButton = document.getElementById('toggleMode');
+        toggleButton.addEventListener('change', () => {
+            document.body.classList.toggle('dark-mode');
+            toggleButton.setAttribute('aria-pressed', toggleButton.checked);
+        });
+    </script>
+    <script>
+        function validateForm() {
+            resetStyles(); // Reset all styles before validation
+    
+            const firstname = document.getElementById('firstname');
+            const lastname = document.getElementById('lastname');
+            const gender = document.querySelector('input[name="gender"]:checked');
+            const phone = document.getElementById('phone');
+            const address = document.getElementById('address');
+            const email = document.getElementById('email');
+            const password = document.getElementById('password');
+            const confirmPassword = document.getElementById('confirmPassword');
+    
+            let isValid = true;
+    
+            if (!firstname.value.trim()) {
+                alert('Please enter your first name.');
+                setInvalid(firstname);
+                isValid = false;
+            } else {
+                setValid(firstname);
+            }
+    
+            if (!lastname.value.trim()) {
+                alert('Please enter your last name.');
+                setInvalid(lastname);
+                isValid = false;
+            } else {
+                setValid(lastname);
+            }
+    
+            if (!gender) {
+                alert('Please select your gender.');
+                isValid = false;
+            }
+    
+            if (!phone.value.trim()) {
+                alert('Please enter your phone number.');
+                setInvalid(phone);
+                isValid = false;
+            } else {
+                setValid(phone);
+            }
+    
+            if (!address.value.trim()) {
+                alert('Please enter your address.');
+                setInvalid(address);
+                isValid = false;
+            } else {
+                setValid(address);
+            }
+    
+            if (!email.value.trim()) {
+                alert('Please enter your email.');
+                setInvalid(email);
+                isValid = false;
+            } else if (!validateEmail(email.value.trim())) {
+                alert('Please enter a valid email address.');
+                setInvalid(email);
+                isValid = false;
+            } else {
+                setValid(email);
+            }
+    
+            if (!password.value) {
+                alert('Please enter your password.');
+                setInvalid(password);
+                isValid = false;
+            } else {
+                setValid(password);
+            }
+    
+            if (password.value !== confirmPassword.value) {
+                alert('Passwords do not match.');
+                setInvalid(confirmPassword);
+                isValid = false;
+            } else {
+                setValid(confirmPassword);
+            }
+    
+            return isValid; // Return the overall validation status
+        }
+    
+        function resetStyles() {
+            const inputs = document.querySelectorAll('input[type="text"], input[type="email"], input[type="password"]');
+            inputs.forEach(input => {
+                input.style.borderColor = '';
+            });
+        }
+    
+        function setInvalid(element) {
+            element.style.borderColor = 'red';
+        }
+    
+        function setValid(element) {
+            element.style.borderColor = 'green';
+        }
+    
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+    </script>
+     <!-- Cart View -->
+     <div id="cart-view">
+        <div class="cart-content">
+            <button class="btn-close-cart" onclick="closeCart()">X</button>
+           <center> <h2>Your Cart</h2></center>
+            <div id="cart-items"></div>
+            <div class="total-price">
+                <h4>Total: ₹<span id="cart-total">0</span></h4>
+            </div>
+            <div class="cart-footer">
+                <button class="btn-later btn-small" onclick="moveToLater()">
+                    Move to Later
+                </button>
+                <button class="btn-processed btn-small" onclick="processItem()">
+                    Mark as Processed
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        const laterItems = JSON.parse(localStorage.getItem('laterItems')) || [];
+
+        // Function to add an item to the cart
+        function addToCart(id, title, price, img) {
+            const existingItem = cartItems.find(item => item.id === id);
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cartItems.push({ id, title, price, img, quantity: 1 });
+            }
+            saveCartToLocalStorage();
+            updateCartBadge();
+        }
+
+        // Save the cart to localStorage
+        function saveCartToLocalStorage() {
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            localStorage.setItem('laterItems', JSON.stringify(laterItems));
+        }
+
+        // Update the cart badge
+        function updateCartBadge() {
+            const cartBadge = document.getElementById('cart-badge');
+            cartBadge.innerText = cartItems.length;
+        }
+
+        // Open the cart view
+        function openCart() {
+            document.getElementById('cart-view').style.display = 'block';
+            document.getElementById('navbarSupportedContent').classList.remove('show');
+            showCartItems();
+        }
+
+        // Close the cart view
+        function closeCart() {
+            document.getElementById('cart-view').style.display = 'none';
+        }
+
+        // Show cart items inside the cart modal
+        function showCartItems() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            cartItemsContainer.innerHTML = '';
+            let total = 0;
+
+            cartItems.forEach(item => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
+                    <img src="${item.img}" alt="product">
+                    <div class="item-details">
+                        <span>${item.title}</span><br>
+                        <span class="price">₹${item.price}</span><br>
+                        <div class="item-actions">
+                            <button class="btn-small" onclick="updateQuantity(${item.id}, -1)">-</button>
+                            <span>${item.quantity}</span>
+                            <button class="btn-small" onclick="updateQuantity(${item.id}, 1)">+</button>
+                            <button class="btn-delete" onclick="removeItem(${item.id})">
+                                 <img src="images/icons8-trash-30.png" alt="Delete" width="0px" height="0px">
+                            </button>
+                        </div>
+                    </div>
+                `;
+                cartItemsContainer.appendChild(cartItem);
+                total += item.price * item.quantity;
+            });
+
+            document.getElementById('cart-total').innerText = total;
+        }
+
+        // Update item quantity
+        function updateQuantity(id, change) {
+            const item = cartItems.find(item => item.id === id);
+            if (item) {
+                item.quantity = Math.max(1, item.quantity + change);
+                saveCartToLocalStorage();
+                showCartItems();
+            }
+        }
+
+        // Remove item from cart
+        function removeItem(id) {
+            const index = cartItems.findIndex(item => item.id === id);
+            if (index > -1) {
+                cartItems.splice(index, 1);
+                saveCartToLocalStorage();
+                showCartItems();
+                updateCartBadge();
+            }
+        }
+
+        // Move item to Later
+        function moveToLater() {
+            alert('Move item to later');
+        }
+
+        // Mark item as Processed
+        function processItem() {
+            alert('Mark item as processed');
+        }
+
+        // Initialize cart badge on page load
+        updateCartBadge();
+    </script>
+
+</body>
+</html>
